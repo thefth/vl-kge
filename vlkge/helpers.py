@@ -752,7 +752,7 @@ def train(model, train_loader, val_loader, test_loader, sampled_train_loader,
     
     if resume_from is not None:
         print(f"\nResuming training from checkpoint: {resume_from}")
-        import utils
+        from vlkge import utils
         model, optimizer, scheduler, start_epoch, best_val_mrr, additional_info = \
             utils.load_checkpoint(model, resume_from, optimizer, scheduler, device)
         
@@ -892,7 +892,7 @@ def train(model, train_loader, val_loader, test_loader, sampled_train_loader,
                 early_stop_counter = 0
                 
                 if save_path:
-                    import utils
+                    from vlkge import utils
                     # Save complete checkpoint with training state
                     additional_info = {
                         'best_val_mrr': best_val_mrr,
